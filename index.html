@@ -65,38 +65,40 @@ img{display:block;max-width:100%}
 @media(max-width:640px){.topbar-nav{display:none}}
 
 /* ===== Hero ===== */
-.hero{padding:88px 0 72px;border-bottom:1px solid var(--line)}
+.hero{padding:88px 0 72px;border-bottom:1px solid var(--line);position:relative}
 .hero-eyebrow{
   font-family:var(--mono);font-size:12px;letter-spacing:.32em;color:var(--accent);
   text-transform:uppercase;margin-bottom:28px;
 }
-.hero-grid{display:grid;grid-template-columns:1.6fr .9fr;gap:64px;align-items:end}
 .hero h1{
   font-family:var(--serif);
-  font-size:clamp(46px,7vw,80px);
-  font-weight:900;line-height:1.08;letter-spacing:-.01em;
+  font-size:clamp(42px,5.5vw,64px);
+  font-weight:900;line-height:1.15;letter-spacing:-.01em;
+  max-width:780px;
 }
 .hero h1 .accent{color:var(--accent);font-style:italic;font-weight:500}
-.hero-lede{margin-top:28px;font-size:17px;color:var(--ink-2);max-width:560px;line-height:1.85}
+.hero-lede{margin-top:28px;font-size:17px;color:var(--ink-2);max-width:620px;line-height:1.85}
 .hero-lede b{font-weight:700;color:var(--ink)}
 .hero-meta{
   margin-top:40px;padding-top:24px;border-top:1px solid var(--line);
-  display:flex;gap:36px;flex-wrap:wrap;
+  display:flex;gap:40px;flex-wrap:wrap;
   font-family:var(--mono);font-size:12.5px;color:var(--muted);letter-spacing:.04em;
 }
 .hero-meta b{display:block;color:var(--ink);font-size:14px;font-weight:500;margin-bottom:4px;font-family:var(--sans)}
-.portrait{position:relative;justify-self:end}
-.portrait img{width:200px;height:200px;object-fit:cover;filter:grayscale(20%)}
+.portrait{position:absolute;top:88px;right:0;width:160px;height:160px}
+.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%)}
 .portrait::after{
-  content:"Neal";position:absolute;left:-12px;bottom:-14px;
-  font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);
-  background:var(--paper);padding:2px 10px;
+  content:"Neal";position:absolute;left:-8px;bottom:-12px;
+  font-family:var(--serif);font-style:italic;font-size:14px;color:var(--accent);
+  background:var(--paper);padding:2px 10px;z-index:2;
+}
+@media(max-width:1024px){
+  .portrait{position:static;width:130px;height:130px;margin:32px 0 0}
+  .portrait::after{font-size:13px}
 }
 @media(max-width:760px){
   .hero{padding:56px 0 48px}
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  .portrait{justify-self:start}
-  .portrait img{width:140px;height:140px}
+  .portrait{width:110px;height:110px;margin:24px 0 0}
 }
 
 /* ===== 通用章节 ===== */
@@ -366,11 +368,10 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
 /* --- 横屏手机（高度 < 500px） --- */
 @media (orientation:landscape) and (max-height:500px){
   .hero{padding:calc(24px + var(--safe-top)) 0 24px}
-  .hero-grid{grid-template-columns:1.5fr .5fr;gap:28px}
   .hero h1{font-size:clamp(30px,5.5vw,44px)}
   .hero-lede{font-size:14px;margin-top:14px}
   .hero-meta{margin-top:20px;padding-top:14px;gap:20px}
-  .portrait img{width:88px;height:88px}
+  .portrait{width:88px;height:88px;top:24px}
   .portrait::after{display:none}
 
   .section{padding:36px 0}
@@ -416,19 +417,15 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-eyebrow">Recruiter · AI / LLM 领域</div>
-    <div class="hero-grid">
-      <div>
-        <h1>在大模型<br>的<span class="accent">人和机会</span>之间，<br>做一点连接。</h1>
-        <p class="hero-lede">我是 <b>Neal</b>，一名专注大模型领域的猎头。这不是一份职位广告——这里写着我真正在找什么样的人、懂什么样的技术栈，以及我们如何开始一次对话。</p>
-        <div class="hero-meta">
-          <div><b>专注方向</b>预训练 · 多模态 · Agent<br>效率优化 · AI Infra</div>
-          <div><b>背景</b>Former CGL · 之江实验室</div>
-          <div><b>联系方式</b>微信 / GitHub</div>
-        </div>
-      </div>
-      <div class="portrait">
-        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NCj1b261woe0ihxWGVQc6tAnned" alt="Neal 的头像">
-      </div>
+    <h1>在大模型的<span class="accent">人和机会</span>之间，<br>做一点连接。</h1>
+    <p class="hero-lede">我是 <b>Neal</b>，一名专注大模型领域的猎头。这不是一份职位广告——这里写着我真正在找什么样的人、懂什么样的技术栈，以及我们如何开始一次对话。</p>
+    <div class="hero-meta">
+      <div><b>专注方向</b>预训练 · 多模态 · Agent<br>效率优化 · AI Infra</div>
+      <div><b>背景</b>Former CGL · 之江实验室</div>
+      <div><b>联系方式</b>微信 / GitHub</div>
+    </div>
+    <div class="portrait">
+      <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NCj1b261woe0ihxWGVQc6tAnned" alt="Neal 的头像">
     </div>
   </div>
 </header>
@@ -708,3 +705,4 @@ footer{padding:36px 0;border-top:1px solid var(--line)}
 
 </body>
 </html>
+<!-- （注：内容由AI生成） -->
