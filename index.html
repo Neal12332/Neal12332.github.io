@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Neal · 大模型领域人才寻访</title>
+<meta name="description" content="Neal，大模型领域猎头。专注预训练/对齐、多模态、Agent、效率优化与 AI Infra 方向的人才连接。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F6F3EC'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' font-weight='700' fill='%232F5D50' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;600;700;900&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F6F3EC;
+  --paper-2:#EFEAE0;
+  --ink:#1C1B1A;
+  --ink-2:#3D3B37;
+  --muted:#7A756C;
+  --faint:#A8A399;
+  --line:#D9D4C7;
+  --line-strong:#B8B2A4;
+  --accent:#2F5D50;
+  --accent-deep:#23453C;
+  --accent-soft:rgba(47,93,80,.08);
+  --serif:'Noto Serif SC',Georgia,'Times New Roman',serif;
+  --sans:'Noto Sans SC',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --maxw:1020px;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+  --safe-left:env(safe-area-inset-left,0px);
+  --safe-right:env(safe-area-inset-right,0px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+::selection{background:var(--accent);color:var(--paper)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+/* ===== 顶部条 ===== */
+.topbar{border-bottom:1px solid var(--line);background:var(--paper)}
+.topbar-inner{
+  max-width:var(--maxw);margin:0 auto;padding:18px 32px;
+  display:flex;justify-content:space-between;align-items:baseline;
+}
+.brand{font-family:var(--serif);font-weight:700;font-size:18px;letter-spacing:.02em}
+.brand small{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:10px;letter-spacing:.18em;font-weight:400}
+.topbar-nav{display:flex;gap:26px;font-size:13px;color:var(--muted);font-family:var(--mono)}
+.topbar-nav a{transition:color .2s}
+.topbar-nav a:hover{color:var(--accent)}
+@media(max-width:640px){.topbar-nav{display:none}}
+
+/* ===== Hero ===== */
+.hero{padding:88px 0 72px;border-bottom:1px solid var(--line)}
+.hero-eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.32em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:28px;
+}
+.hero-grid{display:grid;grid-template-columns:1.6fr .9fr;gap:64px;align-items:end}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(46px,7vw,80px);
+  font-weight:900;line-height:1.08;letter-spacing:-.01em;
+}
+.hero h1 .accent{color:var(--accent);font-style:italic;font-weight:500}
+.hero-lede{margin-top:28px;font-size:17px;color:var(--ink-2);max-width:560px;line-height:1.85}
+.hero-lede b{font-weight:700;color:var(--ink)}
+.hero-meta{
+  margin-top:40px;padding-top:24px;border-top:1px solid var(--line);
+  display:flex;gap:36px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:12.5px;color:var(--muted);letter-spacing:.04em;
+}
+.hero-meta b{display:block;color:var(--ink);font-size:14px;font-weight:500;margin-bottom:4px;font-family:var(--sans)}
+.portrait{position:relative;justify-self:end}
+.portrait img{width:200px;height:200px;object-fit:cover;filter:grayscale(20%)}
+.portrait::after{
+  content:"Neal";position:absolute;left:-12px;bottom:-14px;
+  font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);
+  background:var(--paper);padding:2px 10px;
+}
+@media(max-width:760px){
+  .hero{padding:56px 0 48px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .portrait{justify-self:start}
+  .portrait img{width:140px;height:140px}
+}
+
+/* ===== 通用章节 ===== */
+.section{padding:88px 0;border-bottom:1px solid var(--line)}
+.section-head{margin-bottom:56px;max-width:680px}
+.section-no{
+  font-family:var(--mono);font-size:12px;letter-spacing:.28em;color:var(--accent);
+  display:block;margin-bottom:16px;
+}
+.section-title{
+  font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:700;line-height:1.2;
+}
+.section-sub{margin-top:14px;color:var(--muted);font-size:15px;line-height:1.8}
+
+/* ===== 关于 ===== */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px}
+.about-body p{
+  font-family:var(--serif);font-size:18px;line-height:1.95;color:var(--ink-2);
+  margin-bottom:22px;
+}
+.about-body p:first-of-type::first-letter{
+  font-size:64px;float:left;line-height:.9;
+  padding:6px 12px 0 0;color:var(--accent);font-weight:700;
+}
+.about-body p b{color:var(--ink);font-weight:700}
+.about-facts{border-left:2px solid var(--accent);padding-left:24px}
+.about-facts h4{
+  font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:18px;font-weight:500;
+}
+.fact{padding:12px 0;border-bottom:1px dotted var(--line);display:flex;justify-content:space-between;gap:16px;font-size:14px}
+.fact:last-child{border-bottom:none}
+.fact dt{color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding-top:2px}
+.fact dd{color:var(--ink);font-weight:500;text-align:right}
+@media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:44px}}
+
+/* ===== 专注方向 ===== */
+.focus-group{margin-bottom:64px}
+.focus-group:last-child{margin-bottom:0}
+.focus-head{
+  display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;
+  padding-bottom:18px;border-bottom:1px solid var(--ink);margin-bottom:20px;
+}
+.focus-no{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.08em}
+.focus-name{font-family:var(--serif);font-size:24px;font-weight:700;letter-spacing:-.005em}
+.focus-en{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-spacing:.12em;text-transform:uppercase}
+.focus-intro{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:680px;line-height:1.8}
+.subs{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.sub{padding:18px 22px 18px 0;border-bottom:1px solid var(--line)}
+.sub:nth-child(3n+1){padding-left:0}
+.sub-name{font-weight:700;font-size:14.5px;margin-bottom:6px}
+.sub-desc{color:var(--muted);font-size:13px;line-height:1.7}
+@media(max-width:760px){
+  .subs{grid-template-columns:1fr}
+  .sub{padding-left:0!important}
+  .focus-head{grid-template-columns:40px 1fr}
+  .focus-en{display:none}
+}
+
+/* ===== 候选人画像 / 流程 ===== */
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--ink)}
+.dual-col{padding:40px 40px 0 0;border-right:1px solid var(--line)}
+.dual-col:last-child{border-right:none;padding-right:0;padding-left:40px}
+.dual-col h3{
+  font-family:var(--serif);font-size:20px;font-weight:700;margin-bottom:22px;
+  display:flex;align-items:baseline;gap:10px;
+}
+.dual-col h3 span{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.18em;font-weight:500}
+.dual-list{list-style:none}
+.dual-list li{
+  padding:12px 0;border-bottom:1px dotted var(--line);
+  display:grid;grid-template-columns:24px 1fr;gap:10px;font-size:14.5px;color:var(--ink-2);line-height:1.7;
+}
+.dual-list li:last-child{border-bottom:none}
+.dual-list li::before{content:"§";color:var(--accent);font-family:var(--serif);font-size:15px}
+@media(max-width:760px){
+  .dual{grid-template-columns:1fr}
+  .dual-col{padding:32px 0;border-right:none;border-bottom:1px solid var(--line)}
+  .dual-col:last-child{padding-left:0;padding-bottom:0}
+}
+
+/* ===== GitHub ===== */
+.repo-table{border-top:1px solid var(--ink)}
+.repo-row{
+  display:grid;grid-template-columns:220px 1fr 80px;gap:24px;align-items:baseline;
+  padding:18px 0;border-bottom:1px solid var(--line);
+  transition:padding-left .2s;
+}
+.repo-row:hover{padding-left:8px}
+.repo-name{
+  font-family:var(--mono);font-size:14.5px;font-weight:500;color:var(--ink);
+  border-bottom:1px solid transparent;transition:border-color .2s,color .2s;
+}
+.repo-row:hover .repo-name{color:var(--accent);border-bottom-color:var(--accent)}
+.repo-desc{color:var(--muted);font-size:13.5px;line-height:1.7}
+.repo-lang{font-family:var(--mono);font-size:11.5px;color:var(--faint);text-align:right;letter-spacing:.06em}
+@media(max-width:640px){
+  .repo-row{grid-template-columns:1fr;gap:6px}
+  .repo-lang{text-align:left}
+}
+
+/* ===== 联系 ===== */
+.contact{padding:96px 0}
+.contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:start}
+.contact h2{
+  font-family:var(--serif);font-size:clamp(32px,5vw,48px);font-weight:700;line-height:1.2;
+  margin-bottom:20px;
+}
+.contact h2 em{font-style:italic;color:var(--accent);font-weight:500}
+.contact p{color:var(--muted);font-size:15px;max-width:440px;line-height:1.85}
+.wechat-block{border:1px solid var(--ink);padding:32px;position:relative;background:var(--paper-2)}
+.wechat-block::before{
+  content:"";position:absolute;top:8px;left:8px;right:8px;bottom:8px;
+  border:1px solid var(--line);pointer-events:none;
+}
+.wechat-label{font-family:var(--mono);font-size:11px;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
+.wechat-id{
+  font-family:var(--mono);font-size:clamp(22px,3.4vw,30px);font-weight:500;letter-spacing:.02em;
+  margin-bottom:18px;
+}
+.copy-btn{
+  background:var(--ink);color:var(--paper);border:none;
+  padding:11px 22px;font-size:13.5px;font-weight:500;cursor:pointer;
+  font-family:var(--sans);transition:background .2s;
+}
+.copy-btn:hover{background:var(--accent)}
+.copy-btn.copied{background:var(--accent)}
+.wechat-note{margin-top:16px;font-size:12.5px;color:var(--muted);line-height:1.7}
+.contact-links{margin-top:36px;border-top:1px solid var(--ink)}
+.contact-link{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px;
+}
+.contact-link span:last-child{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.contact-link:hover{color:var(--accent)}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr;gap:44px}}
+
+/* ===== Footer ===== */
+footer{padding:36px 0;border-top:1px solid var(--line)}
+.foot-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 32px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-spacing:.08em;
+}
+.foot-inner a{color:var(--muted)}
+.foot-inner a:hover{color:var(--accent)}
+
+/* ===== Toast ===== */
+.toast{
+  position:fixed;left:50%;bottom:36px;transform:translate(-50%,16px);
+  background:var(--ink);color:var(--paper);
+  padding:11px 22px;font-size:13.5px;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:99;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ============================================================
+   移动端精细适配 — 覆盖 iPhone SE / 标准 / Plus / 折叠屏 / 安卓各尺寸
+   ============================================================ */
+
+/* --- 所有手机（≤760px）：流式排版 + 安全区 --- */
+@media (max-width:760px){
+  .wrap{padding:0 calc(20px + var(--safe-left)) 0 calc(20px + var(--safe-right))}
+  .topbar-inner{padding:14px calc(20px + var(--safe-left)) 14px calc(20px + var(--safe-right))}
+  .foot-inner{padding:0 calc(20px + var(--safe-left)) 0 calc(20px + var(--safe-right))}
+
+  .hero{padding:calc(44px + var(--safe-top)) 0 40px}
+  .hero-eyebrow{font-size:11px;letter-spacing:.26em;margin-bottom:20px}
+  .hero h1{font-size:clamp(38px,11vw,56px);line-height:1.14}
+  .hero-lede{margin-top:20px;font-size:15.5px;line-height:1.8}
+  .hero-meta{margin-top:28px;padding-top:18px;gap:22px;font-size:11.5px}
+  .hero-meta b{font-size:13px;margin-bottom:2px}
+  .portrait img{width:clamp(108px,30vw,148px);height:clamp(108px,30vw,148px)}
+  .portrait::after{font-size:13px;left:-8px;bottom:-10px}
+
+  .section{padding:56px 0}
+  .section-head{margin-bottom:36px}
+  .section-no{font-size:11px;letter-spacing:.24em;margin-bottom:12px}
+  .section-title{font-size:clamp(23px,6.5vw,32px)}
+  .section-sub{font-size:14px;line-height:1.75}
+
+  .about-body p{font-size:16px;line-height:1.9;margin-bottom:18px}
+  .about-body p:first-of-type::first-letter{font-size:50px;padding:4px 10px 0 0}
+  .about-facts{padding-left:18px}
+  .fact{font-size:13.5px;padding:10px 0}
+
+  .focus-group{margin-bottom:48px}
+  .focus-head{grid-template-columns:44px 1fr;gap:14px;padding-bottom:14px;margin-bottom:16px}
+  .focus-no{font-size:12px}
+  .focus-name{font-size:20px}
+  .focus-intro{font-size:14px;margin-bottom:18px}
+  .sub{padding:14px 0}
+  .sub-name{font-size:14px;margin-bottom:4px}
+  .sub-desc{font-size:12.5px;line-height:1.65}
+
+  .dual{border-top:1px solid var(--ink)}
+  .dual-col{padding:28px 0;border-right:none;border-bottom:1px solid var(--line)}
+  .dual-col:last-child{padding-left:0;padding-bottom:0;border-bottom:none}
+  .dual-col h3{font-size:18px;margin-bottom:18px}
+  .dual-list li{font-size:14px;padding:10px 0}
+
+  .repo-row{grid-template-columns:1fr;gap:5px;padding:15px 0}
+  .repo-row:hover{padding-left:0}
+  .repo-name{font-size:13.5px}
+  .repo-desc{font-size:12.5px;line-height:1.65}
+  .repo-lang{text-align:left;font-size:11px}
+
+  .contact{padding:56px 0 calc(44px + var(--safe-bottom))}
+  .contact h2{font-size:clamp(27px,7.5vw,40px);margin-bottom:16px}
+  .contact p{font-size:14.5px;line-height:1.8}
+  .contact-links{margin-top:28px}
+  .contact-link{padding:12px 0;font-size:14px}
+  .contact-link span:last-child{font-size:11.5px}
+  .wechat-block{padding:24px}
+  .wechat-label{font-size:10.5px;margin-bottom:12px}
+  .wechat-id{font-size:clamp(20px,6vw,26px);margin-bottom:16px}
+  .copy-btn{padding:12px 24px;font-size:14px;min-height:44px;min-width:44px}
+  .wechat-note{font-size:12px;margin-top:14px}
+
+  footer{padding:22px 0 calc(18px + var(--safe-bottom))}
+  .foot-inner{font-size:10.5px;flex-direction:column;gap:6px;letter-spacing:.06em}
+
+  .toast{bottom:calc(20px + var(--safe-bottom));max-width:calc(100vw - 40px);font-size:13px;padding:10px 18px}
+}
+
+/* --- 小屏手机（≤380px：iPhone SE / 安卓 360px） --- */
+@media (max-width:380px){
+  .hero h1{font-size:clamp(33px,10.5vw,42px)}
+  .hero-eyebrow{font-size:10px;letter-spacing:.22em}
+  .hero-lede{font-size:14.5px}
+  .hero-meta{gap:16px;font-size:11px}
+  .hero-meta b{font-size:12.5px}
+  .portrait img{width:96px;height:96px}
+
+  .section{padding:48px 0}
+  .section-title{font-size:22px}
+  .section-sub{font-size:13.5px}
+
+  .about-body p{font-size:15px;line-height:1.85}
+  .about-body p:first-of-type::first-letter{font-size:44px}
+
+  .focus-name{font-size:18px}
+  .focus-intro{font-size:13.5px}
+  .sub-name{font-size:13.5px}
+  .sub-desc{font-size:12px}
+
+  .dual-list li{font-size:13.5px}
+  .repo-name{font-size:13px}
+  .repo-desc{font-size:12px}
+
+  .contact h2{font-size:26px}
+  .wechat-block{padding:20px}
+  .wechat-id{font-size:19px}
+  .copy-btn{width:100%;justify-content:center}
+}
+
+/* --- 大屏手机（414–760px：iPhone Plus/Pro Max / 折叠屏外屏） --- */
+@media (min-width:414px) and (max-width:760px){
+  .hero h1{font-size:clamp(44px,9vw,60px)}
+  .hero-lede{font-size:16px}
+  .subs{grid-template-columns:1fr 1fr;gap:0}
+  .sub{padding:16px 18px 16px 0}
+  .sub:nth-child(odd){padding-left:0}
+  .sub:nth-child(even){padding-left:18px;border-left:1px solid var(--line)}
+}
+
+/* --- 横屏手机（高度 < 500px） --- */
+@media (orientation:landscape) and (max-height:500px){
+  .hero{padding:calc(24px + var(--safe-top)) 0 24px}
+  .hero-grid{grid-template-columns:1.5fr .5fr;gap:28px}
+  .hero h1{font-size:clamp(30px,5.5vw,44px)}
+  .hero-lede{font-size:14px;margin-top:14px}
+  .hero-meta{margin-top:20px;padding-top:14px;gap:20px}
+  .portrait img{width:88px;height:88px}
+  .portrait::after{display:none}
+
+  .section{padding:36px 0}
+  .section-head{margin-bottom:24px}
+  .subs{grid-template-columns:repeat(3,1fr)}
+  .sub{padding:12px 16px 12px 0}
+  .sub:nth-child(3n+1){padding-left:0}
+
+  .dual{grid-template-columns:1fr 1fr}
+  .dual-col{padding:24px 24px 0 0;border-right:1px solid var(--line);border-bottom:none}
+  .dual-col:last-child{padding-left:24px;border-right:none}
+
+  .contact{padding:40px 0 calc(32px + var(--safe-bottom))}
+  .contact-grid{grid-template-columns:1.3fr 1fr;gap:36px}
+}
+
+/* --- 折叠屏展开 / 小平板（761–900px） --- */
+@media (min-width:761px) and (max-width:900px){
+  .wrap{padding:0 28px}
+  .hero h1{font-size:clamp(42px,6vw,64px)}
+  .subs{grid-template-columns:repeat(2,1fr)}
+  .sub:nth-child(3n+1){padding-left:22px}
+  .sub:nth-child(odd){padding-left:0}
+  .sub:nth-child(even){padding-left:22px;border-left:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">Neal<small>TALENT SCOUTING · LLM</small></a>
+    <div class="topbar-nav">
+      <a href="#about">关于</a>
+      <a href="#focus">方向</a>
+      <a href="#profile">候选人</a>
+      <a href="#github">GitHub</a>
+      <a href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-eyebrow">Recruiter · AI / LLM 领域</div>
+    <div class="hero-grid">
+      <div>
+        <h1>在大模型<br>的<span class="accent">人和机会</span>之间，<br>做一点连接。</h1>
+        <p class="hero-lede">我是 <b>Neal</b>，一名专注大模型领域的猎头。这不是一份职位广告——这里写着我真正在找什么样的人、懂什么样的技术栈，以及我们如何开始一次对话。</p>
+        <div class="hero-meta">
+          <div><b>专注方向</b>预训练 · 多模态 · Agent<br>效率优化 · AI Infra</div>
+          <div><b>背景</b>Former CGL · 之江实验室</div>
+          <div><b>联系方式</b>微信 / GitHub</div>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NCj1b261woe0ihxWGVQc6tAnned" alt="Neal 的头像">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 关于 ===== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-no">01 / ABOUT</span>
+      <h2 class="section-title">我做的事，和别人不太一样。</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>猎头这个词，在技术圈名声并不好。因为大多数猎头不读你的简历——他们读的是关键词。我想换一种做法：先理解模型、理解团队在解决的问题，再判断一个人值不值得花一次对话的时间。</p>
+        <p>我此前在 <b>CGL</b> 与 <b>之江实验室（Zhejiang Lab）</b>工作，长期跟踪大模型一线团队的组织、技术栈和人才流动。我服务两类人：正在看机会的<b>工程师与研究员</b>，和需要核心人才的<b>团队负责人</b>。</p>
+        <p>这里没有夸张的承诺，也不群发职位。如果你在看，欢迎直接聊；如果你在招人，也欢迎把需求写清楚一点。</p>
+      </div>
+      <dl class="about-facts">
+        <h4>AT A GLANCE</h4>
+        <div class="fact"><dt>领域</dt><dd>AI 大模型</dd></div>
+        <div class="fact"><dt>覆盖</dt><dd>算法 → Infra 全栈</dd></div>
+        <div class="fact"><dt>背景</dt><dd>Former CGL</dd></div>
+        <div class="fact"><dt></dt><dd>之江实验室</dd></div>
+        <div class="fact"><dt>语言</dt><dd>中文 / English</dd></div>
+        <div class="fact"><dt>沟通</dt><dd>微信优先</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 专注方向（细化） ===== -->
+<section class="section" id="focus">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-no">02 / FOCUS</span>
+      <h2 class="section-title">我真正在读的五个方向。</h2>
+      <p class="section-sub">每个方向下面，是我会在简历里逐行看的子领域。如果你做的事落在其中，欢迎找我聊——不必是完美匹配。</p>
+    </div>
+
+    <div class="focus-group">
+      <div class="focus-head">
+        <span class="focus-no">I.</span>
+        <h3 class="focus-name">预训练与对齐</h3>
+        <span class="focus-en">Pretraining &amp; Alignment</span>
+      </div>
+      <p class="focus-intro">从一行代码到一个可用的基座模型，覆盖数据、训练、对齐到评测的完整链路。</p>
+      <div class="subs">
+        <div class="sub"><div class="sub-name">数据工程</div><div class="sub-desc">语料清洗、配比、合成数据、去污染、多语种平衡</div></div>
+        <div class="sub"><div class="sub-name">基座训练</div><div class="sub-desc">Scaling Law、MoE、长上下文、SSM/Mamba 等新架构</div></div>
+        <div class="sub"><div class="sub-name">对齐</div><div class="sub-desc">SFT、RLHF / RLAIF、DPO、Constitutional AI、安全</div></div>
+        <div class="sub"><div class="sub-name">能力评测</div><div class="sub-desc">基准测试、人工评测、偏好模型、长链路评估</div></div>
+        <div class="sub"><div class="sub-name">后训练</div><div class="sub-desc">工具调用、知识注入、长尾能力补全</div></div>
+        <div class="sub"><div class="sub-name">研究方向</div><div class="sub-desc">推理时计算、过程奖励、自改进</div></div>
+      </div>
+    </div>
+
+    <div class="focus-group">
+      <div class="focus-head">
+        <span class="focus-no">II.</span>
+        <h3 class="focus-name">多模态</h3>
+        <span class="focus-en">Multimodal</span>
+      </div>
+      <p class="focus-intro">视觉、音频、视频与语言的统一建模——从理解到生成，从单模态到世界模型。</p>
+      <div class="subs">
+        <div class="sub"><div class="sub-name">视觉语言</div><div class="sub-desc">VLM、图文检索、OCR、Grounding、文档理解</div></div>
+        <div class="sub"><div class="sub-name">图像生成</div><div class="sub-desc">扩散模型、DiT、文生图、编辑与局部重绘</div></div>
+        <div class="sub"><div class="sub-name">视频生成</div><div class="sub-desc">Sora 类模型、时序一致性、视频理解与检索</div></div>
+        <div class="sub"><div class="sub-name">音频与语音</div><div class="sub-desc">语音识别、TTS、音乐生成、音视频对齐</div></div>
+        <div class="sub"><div class="sub-name">3D / 世界模型</div><div class="sub-desc">NeRF、3D 生成、具身感知、场景理解</div></div>
+        <div class="sub"><div class="sub-name">统一模型</div><div class="sub-desc">多模态统一架构、跨模态表征学习</div></div>
+      </div>
+    </div>
+
+    <div class="focus-group">
+      <div class="focus-head">
+        <span class="focus-no">III.</span>
+        <h3 class="focus-name">Agent 智能体</h3>
+        <span class="focus-en">Agents &amp; Reasoning</span>
+      </div>
+      <p class="focus-intro">让模型不只是回答问题，而是真正上手做事——规划、用工具、在环境里迭代。</p>
+      <div class="subs">
+        <div class="sub"><div class="sub-name">规划与推理</div><div class="sub-desc">ReAct、Tree Search、自反思、任务分解</div></div>
+        <div class="sub"><div class="sub-name">工具使用</div><div class="sub-desc">Function Calling、浏览器 Agent、代码 Agent</div></div>
+        <div class="sub"><div class="sub-name">多智能体</div><div class="sub-desc">协作、辩论、分工、角色化系统</div></div>
+        <div class="sub"><div class="sub-name">记忆与上下文</div><div class="sub-desc">长程记忆、RAG、工作记忆、知识管理</div></div>
+        <div class="sub"><div class="sub-name">具身智能</div><div class="sub-desc">机器人操作、VLA、仿真到现实</div></div>
+        <div class="sub"><div class="sub-name">Agent 评测</div><div class="sub-desc">AgentBench、真实任务、长程成功率</div></div>
+      </div>
+    </div>
+
+    <div class="focus-group">
+      <div class="focus-head">
+        <span class="focus-no">IV.</span>
+        <h3 class="focus-name">大模型效率优化</h3>
+        <span class="focus-en">Efficiency &amp; Deployment</span>
+      </div>
+      <p class="focus-intro">把模型做到更快、更省、能在真实场景里跑起来——这是从 demo 到产品的关键一跃。</p>
+      <div class="subs">
+        <div class="sub"><div class="sub-name">模型压缩</div><div class="sub-desc">量化（INT4/INT8）、蒸馏、剪枝、稀疏化</div></div>
+        <div class="sub"><div class="sub-name">推理加速</div><div class="sub-desc">KV Cache、投机解码、连续批处理、前缀缓存</div></div>
+        <div class="sub"><div class="sub-name">端侧部署</div><div class="sub-desc">手机 / 车机 / 嵌入式、端云协同、边缘推理</div></div>
+        <div class="sub"><div class="sub-name">服务框架</div><div class="sub-desc">vLLM、SGLang、TensorRT-LLM、TGI、llama.cpp</div></div>
+        <div class="sub"><div class="sub-name">训练效率</div><div class="sub-desc">显存优化、激活重计算、混合精度</div></div>
+        <div class="sub"><div class="sub-name">成本优化</div><div class="sub-desc">推理计费优化、模型路由、动态调度</div></div>
+      </div>
+    </div>
+
+    <div class="focus-group">
+      <div class="focus-head">
+        <span class="focus-no">V.</span>
+        <h3 class="focus-name">AI Infra</h3>
+        <span class="focus-en">Infrastructure</span>
+      </div>
+      <p class="focus-intro">底层系统：从几千卡的训练集群，到一张卡上的算子——这一层决定了上面一切能跑多快。</p>
+      <div class="subs">
+        <div class="sub"><div class="sub-name">分布式训练</div><div class="sub-desc">3D 并行、ZeRO、分布式优化器、容错训练</div></div>
+        <div class="sub"><div class="sub-name">算子与编译</div><div class="sub-desc">CUDA kernel、Triton、编译器优化、算子库</div></div>
+        <div class="sub"><div class="sub-name">推理引擎</div><div class="sub-desc">高性能推理、调度、动态批处理、PagedAttention</div></div>
+        <div class="sub"><div class="sub-name">芯片与硬件</div><div class="sub-desc">GPU / NPU / 国产芯片适配、性能调优</div></div>
+        <div class="sub"><div class="sub-name">集群与调度</div><div class="sub-desc">Kubernetes、GPU 调度、故障转移、万卡集群</div></div>
+        <div class="sub"><div class="sub-name">平台工具链</div><div class="sub-desc">模型仓库、MLOps、实验管理、监控</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 候选人画像 + 合作流程 ===== -->
+<section class="section" id="profile">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-no">03 / WHO I LOOK FOR</span>
+      <h2 class="section-title">我在找什么样的人，怎么开始。</h2>
+    </div>
+    <div class="dual">
+      <div class="dual-col">
+        <h3>候选人画像 <span>CANDIDATE</span></h3>
+        <ul class="dual-list">
+          <li>有大模型项目从 0 到 1 的完整经验，不只是调 API</li>
+          <li>工业界：主导过千亿 / 万亿级模型训练，或大规模推理部署</li>
+          <li>学术界：在 NeurIPS / ICML / ICLR / CVPR / ACL 有一作论文</li>
+          <li>对系统和算法都有手感——不局限于纯理论或纯工程</li>
+          <li>正在考虑下一阶段：是更大的团队、更核心的方向，还是创业</li>
+        </ul>
+      </div>
+      <div class="dual-col">
+        <h3>合作方式 <span>HOW WE WORK</span></h3>
+        <ul class="dual-list">
+          <li>一次 30 分钟的坦诚对话，先聊你的技术积累和真实诉求</li>
+          <li>我会明确告诉你哪些机会匹配、哪些不匹配——不硬推</li>
+          <li>匹配后：机会细节、面试辅导、薪资谈判全程陪伴</li>
+          <li>入职后仍保持联系，6 个月内不顺畅随时告诉我</li>
+          <li>所有沟通经你同意才进行，简历和背景信息严格保密</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GitHub ===== -->
+<section class="section" id="github">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-no">04 / WATCHING</span>
+      <h2 class="section-title">我在读的国内基模开源项目。</h2>
+      <p class="section-sub">保持对一线模型实现的体感——每一个项目背后，都是一支值得长期跟踪的团队。</p>
+    </div>
+    <div class="repo-table">
+      <a class="repo-row" href="https://github.com/QwenLM/Qwen3" target="_blank" rel="noopener">
+        <span class="repo-name">QwenLM / Qwen3</span>
+        <span class="repo-desc">阿里通义千问旗舰开源模型——MoE 架构、思考模式切换、多尺寸覆盖</span>
+        <span class="repo-lang">Qwen</span>
+      </a>
+      <a class="repo-row" href="https://github.com/ByteDance-Seed/Seed-Coder" target="_blank" rel="noopener">
+        <span class="repo-name">ByteDance-Seed / Seed-Coder</span>
+        <span class="repo-desc">字节 Seed 团队开源的代码大模型，针对软件工程场景深度优化</span>
+        <span class="repo-lang">Seed</span>
+      </a>
+      <a class="repo-row" href="https://github.com/deepseek-ai/DeepSeek-R1" target="_blank" rel="noopener">
+        <span class="repo-name">deepseek-ai / DeepSeek-R1</span>
+        <span class="repo-desc">DeepSeek 推理模型——强化学习激发长链式推理，开源改变了行业格局</span>
+        <span class="repo-lang">DeepSeek</span>
+      </a>
+      <a class="repo-row" href="https://github.com/zai-org/GLM-4.5" target="_blank" rel="noopener">
+        <span class="repo-name">zai-org / GLM-4.5</span>
+        <span class="repo-desc">智谱 GLM 旗舰开源模型——MoE 架构、原生 Agent 与代码能力</span>
+        <span class="repo-lang">GLM</span>
+      </a>
+      <a class="repo-row" href="https://github.com/MiniMax-AI/MiniMax-M2.5" target="_blank" rel="noopener">
+        <span class="repo-name">MiniMax-AI / MiniMax-M2.5</span>
+        <span class="repo-desc">MiniMax 开源推理与 Agent 模型，长上下文与工具调用能力突出</span>
+        <span class="repo-lang">MiniMax</span>
+      </a>
+      <a class="repo-row" href="https://github.com/Neal12332" target="_blank" rel="noopener">
+        <span class="repo-name">@Neal12332</span>
+        <span class="repo-desc">访问 GitHub 主页查看我的 star 与关注列表</span>
+        <span class="repo-lang">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 联系 ===== -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="section-no">05 / CONTACT</span>
+      <h2>聊一聊，<em>没有压力。</em></h2>
+      <p>无论你在看机会，还是在招核心人才，都欢迎直接联系。一次对话不代表承诺，不合适我会直接告诉你。</p>
+      <div class="contact-links">
+        <a class="contact-link" href="https://github.com/Neal12332" target="_blank" rel="noopener">
+          <span>GitHub</span><span>@Neal12332</span>
+        </a>
+        <a class="contact-link" href="#contact">
+          <span>微信</span><span>nl13805799348</span>
+        </a>
+      </div>
+    </div>
+    <div class="wechat-block">
+      <div class="wechat-label">WeChat / 微信</div>
+      <div class="wechat-id">nl13805799348</div>
+      <button class="copy-btn" id="copyWechat" type="button">复制微信号</button>
+      <p class="wechat-note">添加时备注一句来意即可——"看机会"、"招人"、"聊聊"都行。我会尽快回复。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 NEAL · TALENT SCOUTING IN LLM</span>
+    <span><a href="https://github.com/Neal12332" target="_blank" rel="noopener">github.com/Neal12332</a> · BUILT ON GITHUB PAGES</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">微信号已复制</div>
+
+<script>
+(function(){
+  'use strict';
+  var toast = document.getElementById('toast');
+  var t = null;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(t);
+    t = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+  var btn = document.getElementById('copyWechat');
+  var id = 'nl13805799348';
+  var original = btn.textContent;
+  btn.addEventListener('click', function(){
+    function done(){
+      btn.classList.add('copied');
+      btn.textContent = '已复制';
+      showToast('微信号 ' + id + ' 已复制');
+      setTimeout(function(){
+        btn.classList.remove('copied');
+        btn.textContent = original;
+      }, 2400);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(id).then(done, fallback);
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = id;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); }
+      catch(e){ showToast('复制失败，请手动复制：' + id); }
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
